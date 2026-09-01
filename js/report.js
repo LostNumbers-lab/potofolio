@@ -16,33 +16,37 @@ function filterResources() {
 }
 [resourceSearch, typeFilter].forEach((control) => control.addEventListener('input', filterResources));
 
-const haedongCard = document.querySelector('[data-open-resource="haedong"]');
-const haedongDialog = document.querySelector('#haedong-dialog');
-const closeDialogButton = haedongDialog?.querySelector('[data-close-dialog]');
+document.querySelectorAll('[data-open-resource]').forEach((card) => {
+  const dialogId = card.getAttribute('aria-controls');
+  const dialog = document.getElementById(dialogId);
+  const closeDialogButton = dialog?.querySelector('[data-close-dialog]');
 
-function openHaedongDialog() {
-  if (!haedongDialog?.open) {
-    haedongDialog.showModal();
-    document.body.classList.add('menu-open');
+  if (!dialog) return;
+
+  function openDialog() {
+    if (!dialog.open) {
+      dialog.showModal();
+      document.body.classList.add('menu-open');
+    }
   }
-}
 
-function closeHaedongDialog() {
-  haedongDialog?.close();
-}
-
-haedongCard?.addEventListener('click', openHaedongDialog);
-haedongCard?.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' || event.key === ' ') {
-    event.preventDefault();
-    openHaedongDialog();
+  function closeDialog() {
+    if (dialog.open) dialog.close();
   }
-});
-closeDialogButton?.addEventListener('click', closeHaedongDialog);
-haedongDialog?.addEventListener('click', (event) => {
-  if (event.target === haedongDialog) closeHaedongDialog();
-});
-haedongDialog?.addEventListener('close', () => {
-  document.body.classList.remove('menu-open');
-  haedongCard?.focus();
+
+  card.addEventListener('click', openDialog);
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openDialog();
+    }
+  });
+  closeDialogButton?.addEventListener('click', closeDialog);
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) closeDialog();
+  });
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('menu-open');
+    card.focus();
+  });
 });
