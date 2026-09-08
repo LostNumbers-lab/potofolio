@@ -12,6 +12,7 @@ export default defineConfig({
         contents: resolve(__dirname, 'contents.html'),
         sns: resolve(__dirname, 'sns.html'),
         final: resolve(__dirname, 'final.html'),
+        routeRecipe: resolve(__dirname, 'route-recipe.html'),
       },
     },
   },
