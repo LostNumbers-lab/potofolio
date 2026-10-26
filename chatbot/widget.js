@@ -29,6 +29,7 @@ if (!document.querySelector('#travel-chatbot-widget')) {
     }
     panel.hidden = !open;
     launcher.setAttribute('aria-expanded', String(open));
+    if (open && frame) frame.contentWindow.postMessage({ type: 'travel-chatbot-refresh' }, location.origin);
     (open ? close : launcher).focus();
   }
   launcher.addEventListener('click', () => setOpen(panel.hidden));

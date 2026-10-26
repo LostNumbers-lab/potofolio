@@ -1,0 +1,4 @@
+[functions.chatbot-console]
+verify_jwt = false
+# This function authenticates administrator requests with server-validated,
+# expiring custom sessions; /public is intentionally read-only and public.

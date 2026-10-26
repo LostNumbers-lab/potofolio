@@ -1,6 +1,6 @@
 import { saveInquiry, validateConfig } from './inquiry-store.js';
 
-export async function mountInquiry(mount) {
+export async function mountInquiry(mount, { preview = false } = {}) {
   mount.innerHTML = `<form class="inquiry-form">
     <p class="config-note" role="status">문의 저장 설정을 확인하고 있습니다.</p>
     <label>이름 <input name="name" autocomplete="name" maxlength="60" required placeholder="성함 또는 담당자명"></label>
@@ -17,6 +17,12 @@ export async function mountInquiry(mount) {
   const submit = form.querySelector('[type="submit"]');
   const note = form.querySelector('.config-note');
   const status = form.querySelector('.form-status');
+  if (preview) {
+    note.textContent = '게시 전 미리보기입니다. 문의 내용은 실제로 전송되지 않습니다.';
+    form.querySelector('.privacy-note').textContent = '미리보기에서는 폼의 표시와 입력 동작만 확인할 수 있습니다.';
+    form.addEventListener('submit', event => event.preventDefault());
+    return;
+  }
   let config, busy = false, ready = false;
   try {
     const response = await fetch('./data/inquiry-config.json', { cache: 'no-store' });

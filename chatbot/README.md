@@ -2,12 +2,17 @@
 
 포트폴리오의 `js/common.js`가 `chatbot/widget.js`를 로드해 모든 주요 페이지 오른쪽 아래에 챗봇을 표시합니다. 독립 페이지는 `chatbot/index.html`, 문의 페이지는 `chatbot/contact.html`입니다. 외부 챗봇 사이트나 생성형 AI API를 호출하지 않습니다.
 
+## 관리자 페이지
+
+`chatbot/admin/`에서 로그인한 관리자가 질문·답변·키워드·버튼을 편집하고 초안 저장 → 미리보기 → 최종 게시 순서로 공개할 수 있습니다. 게시 이력·이전 버전 복원·제작 문의함·비밀번호 변경을 제공합니다. 서버 인증 및 운영 방법은 [관리자 안내](admin/README.md)를 참고하세요.
+
 ## 데이터 관리
 
-- `data/chatbot.json`: 예상 질문(question), 고정 답변(answer), 키워드(keywords), 버튼(buttons), 다음 단계(next).
+- 운영본: Supabase에 저장된 초안·게시 JSON. 관리자 최종 게시 후 실제 웹에 반영됩니다.
+- `data/chatbot.json`: 초기 기본본/서버 연결 장애 시 백업 데이터. 예상 질문(question), 고정 답변(answer), 키워드(keywords), 버튼(buttons), 다음 단계(next)를 관리합니다.
 - 버튼은 next, url, action 중 하나만 사용합니다. action은 home/back/inquiry입니다.
 - `data/inquiry-config.json`: Supabase 프로젝트의 공개 publishable 키, 기존 테이블·필드 매핑, 문의 안내.
-- JSON 변경 후 새로고침하면 적용됩니다. `node --test tests/chatbot.test.mjs`로 분기와 설정을 검증합니다(저장소 루트에서 실행).
+- 관리자에서 게시 후 챗봇을 새로고침하거나 홈페이지 위젯을 다시 열면 적용됩니다. `node --test tests/*.test.mjs`로 분기와 설정을 검증합니다(저장소 루트에서 실행).
 
 ## 문의 저장
 

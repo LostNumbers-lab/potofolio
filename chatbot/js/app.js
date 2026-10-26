@@ -1,7 +1,9 @@
 import { Conversation, findNodes, isSafeUrl } from './engine.js';
 import { mountInquiry } from './inquiry-form.js';
+import { getPublished } from './console-api.js';
 
 const embedded = new URLSearchParams(location.search).get('embed') === '1';
+const previewMode = new URLSearchParams(location.search).get('preview') === '1' && window.parent !== window;
 if (embedded) document.documentElement.classList.add('embedded');
 document.addEventListener('keydown', event => {
   if (embedded && event.key === 'Escape' && !document.querySelector('#inquiry-dialog').open) {
@@ -55,14 +57,35 @@ document.querySelector('#search-form').addEventListener('submit', event => {
   if (!nodes.length) { addMessage(query, true); chat.go(chat.data.fallbackNode); render(); results.textContent = '일치하는 등록 질문이 없습니다.'; return; }
   for (const node of nodes) { const button = document.createElement('button'); button.type = 'button'; button.textContent = node.question; button.addEventListener('click', () => { choose({ label: node.question, next: node.id }); results.replaceChildren(); }); results.append(button); }
 });
-try {
-  const response = await fetch('./data/chatbot.json', { cache: 'no-store' });
-  if (!response.ok) throw new Error('질문 데이터를 읽지 못했습니다.');
-  chat = new Conversation(await response.json());
+let publishedId;
+function installChat(config) {
+  chat = new Conversation(config);
+  messages.replaceChildren();
   for (const global of chat.data.globalButtons) { const id = { back: 'back', home: 'home', inquiry: 'inquiry' }[global.action]; document.querySelector('#' + id).textContent = global.label; }
   render();
-} catch (error) {
-  addMessage(location.protocol === 'file:' ? 'JSON 데이터를 읽으려면 start.bat를 실행한 뒤 http://127.0.0.1:4173에서 열어 주세요.' : '대화 데이터를 불러오지 못했습니다. JSON 파일을 확인하고 새로고침해 주세요.');
-  console.error(error);
 }
-mountInquiry(document.querySelector('#inquiry-mount'));
+async function loadLive() {
+  try {
+    const result = await getPublished();
+    if (!chat || publishedId !== result.version.id) { installChat(result.config); publishedId=result.version.id; }
+  } catch {
+    if (chat) return;
+    try {
+      const response = await fetch(new URL('../data/chatbot.json', import.meta.url), { cache: 'no-store' });
+      if (!response.ok) throw new Error();
+      installChat(await response.json());
+      addMessage('현재 서버 연결이 원활하지 않아 기본 안내를 표시하고 있어요.');
+    } catch { addMessage(location.protocol === 'file:' ? '로컬 HTTP 서버에서 열어 주세요.' : '대화 데이터를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.'); }
+  }
+}
+window.addEventListener('message', event => {
+  if (event.origin !== location.origin || event.source !== window.parent) return;
+  if (previewMode && event.data?.type === 'travel-preview-config') {
+    try { installChat(event.data.config); } catch (error) { messages.replaceChildren(); addMessage(error.message); }
+  } else if (!previewMode && event.data?.type === 'travel-chatbot-refresh') loadLive();
+});
+if (previewMode) {
+  addMessage('관리자 미리보기 데이터를 불러오고 있어요.');
+  window.parent.postMessage({type:'travel-preview-ready'}, location.origin);
+} else { addMessage('공개된 안내 데이터를 불러오고 있어요.'); await loadLive(); }
+mountInquiry(document.querySelector('#inquiry-mount'), { preview: previewMode });

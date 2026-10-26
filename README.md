@@ -12,6 +12,7 @@ SK플래닛 관광 콘텐츠 제작 과정과 결과물을 정리하는 반응�
 - `route-recipe.html`: Route Recipe 서비스 소개
 - `chatbot/index.html`: 선택형 아카이브 안내 챗봇
 - `chatbot/contact.html`: Supabase에 저장되는 제작 문의
+- `chatbot/admin/`: 관리자 로그인, 초안 편집, 미리보기, 최종 게시, 버전 이력, 문의함
 
 ## 콘텐츠 교체
 
@@ -23,6 +24,6 @@ SK플래닛 관광 콘텐츠 제작 과정과 결과물을 정리하는 반응�
 
 ## 안내 챗봇
 
-주요 페이지 오른쪽 아래의 **아카이브 가이드** 버튼에서 열 수 있습니다. 질문·답변·키워드·버튼·다음 단계는 `chatbot/data/chatbot.json`으로 관리합니다. 생성형 AI API 없이 등록된 답변과 분기로만 작동합니다. 문의는 기존 Supabase `public.consultations` 테이블에 비공개 제작 문의로 저장됩니다. 자세한 파일 구성과 운영 방법은 [chatbot/README.md](chatbot/README.md)를 참고하세요.
+주요 페이지 오른쪽 아래의 **아카이브 가이드** 버튼에서 열 수 있습니다. 생성형 AI API 없이 등록된 답변과 분기로만 작동합니다. 운영 데이터는 [관리자 페이지](https://lostnumbers-lab.github.io/potofolio/chatbot/admin/)에서 JSON으로 편집하며 초안 저장·미리보기와 최종 게시를 분리합니다. 문의는 기존 Supabase `public.consultations` 테이블에 비공개 제작 문의로 저장되고 관리자 문의함에서 확인합니다. 자세한 운영 방법은 [관리자 안내](chatbot/admin/README.md)를 참고하세요.
 
 `pnpm test`로 대화 분기와 문의 매핑을 검증할 수 있습니다.
