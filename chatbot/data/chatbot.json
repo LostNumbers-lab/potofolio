@@ -1,0 +1,173 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-10-26",
+  "startNode": "home",
+  "fallbackNode": "fallback",
+  "globalButtons": [
+    { "label": "이전으로", "action": "back" },
+    { "label": "처음으로", "action": "home" },
+    { "label": "제작 문의", "action": "inquiry" }
+  ],
+  "nodes": [
+    {
+      "id": "home", "question": "무엇을 도와드릴까요?", "keywords": ["시작", "홈", "메뉴"],
+      "answer": "안녕하세요! TRAVEL ARCHIVE 안내 가이드입니다.\n관광자원 조사부터 콘텐츠 제작, SNS 분석, 프로젝트까지 살펴볼 수 있어요. 궁금한 내용을 선택해 주세요.",
+      "buttons": [
+        { "label": "이 사이트가 궁금해요", "next": "about" },
+        { "label": "관광자원 조사 보기", "next": "report" },
+        { "label": "제작한 콘텐츠 보기", "next": "contents" },
+        { "label": "SNS 성과 살펴보기", "next": "sns" },
+        { "label": "프로젝트 알아보기", "next": "projects" },
+        { "label": "어디부터 보면 좋을까요?", "next": "recommend" },
+        { "label": "제작 문의", "action": "inquiry" }
+      ]
+    },
+    {
+      "id": "about", "question": "TRAVEL ARCHIVE는 어떤 사이트인가요?", "keywords": ["사이트", "소개", "포트폴리오", "아카이브", "SK플래닛"],
+      "answer": "TRAVEL ARCHIVE는 SK플래닛 관광 콘텐츠 제작 과정의 자료와 결과물을 모은 포트폴리오예요. 관광자원 조사, 콘텐츠 기획·제작, SNS 반응 분석, 팀 프로젝트로 이어지는 작업을 소개합니다.",
+      "source": "https://lostnumbers-lab.github.io/potofolio/",
+      "buttons": [ { "label": "어떤 내용을 볼 수 있나요?", "next": "structure" }, { "label": "제작자는 어떤 일을 하나요?", "next": "creator" }, { "label": "작업 과정이 궁금해요", "next": "process" }, { "label": "SNS 채널 보기", "next": "channels" } ]
+    },
+    {
+      "id": "structure", "question": "어떤 내용을 볼 수 있나요?", "keywords": ["메뉴", "구성", "목록"],
+      "answer": "REPORT는 관광자원 조사, CONTENTS는 카드뉴스·영상·포스터, SNS는 성과와 인사이트를 다룹니다. FINAL PROJECT에서는 팀 프로젝트 구성을, ROUTE RECIPE에서는 여행 서비스 소개를 볼 수 있어요.",
+      "buttons": [ { "label": "조사 자료", "next": "report" }, { "label": "제작 콘텐츠", "next": "contents" }, { "label": "프로젝트", "next": "projects" } ]
+    },
+    {
+      "id": "creator", "question": "제작자는 어떤 일을 하나요?", "keywords": ["제작자", "기획자", "역할", "누구"],
+      "answer": "사이트에서는 제작자를 관광과 소셜미디어 분야의 콘텐츠 기획·제작자로 소개하고 있어요. 여행지의 매력을 조사하고, 관심을 끌 이야기와 시각 콘텐츠로 구성하는 작업을 다룹니다.",
+      "reviewStatus": "실명, 경력, 개인별 담당 역할 확인 필요",
+      "buttons": [ { "label": "제작물 보기", "next": "contents" }, { "label": "작업 과정 보기", "next": "process" } ]
+    },
+    {
+      "id": "process", "question": "작업 과정은 어떻게 되나요?", "keywords": ["과정", "기획", "제작", "조사", "협업"],
+      "answer": "관광자원을 조사하고 콘텐츠를 기획·제작한 뒤 SNS 반응을 분석하는 흐름이에요. 팀 프로젝트 페이지에서는 조사 → 기획 → 디자인 → 배포와 개선의 네 단계를 소개합니다.",
+      "buttons": [ { "label": "관광자원 조사", "next": "report" }, { "label": "팀 프로젝트 구성", "next": "final" } ]
+    },
+    {
+      "id": "channels", "question": "SNS 채널도 있나요?", "keywords": ["인스타그램", "유튜브", "채널", "소셜"],
+      "answer": "사이트 하단에 연결된 인스타그램과 유튜브 채널을 방문할 수 있어요. 아래 버튼은 외부 사이트를 새 탭으로 엽니다.",
+      "buttons": [ { "label": "인스타그램 열기", "url": "https://www.instagram.com/stor.yhearth/" }, { "label": "유튜브 열기", "url": "https://www.youtube.com/@story_hearth416" } ]
+    },
+    {
+      "id": "report", "question": "어떤 관광자원을 조사했나요?", "keywords": ["관광자원", "리서치", "부산", "REPORT", "조사"],
+      "answer": "REPORT에서는 부산의 역사, 생활문화, 해안 경관을 담은 세 곳을 소개해요. 궁금한 장소를 선택해 주세요.",
+      "source": "https://lostnumbers-lab.github.io/potofolio/report.html",
+      "buttons": [ { "label": "임시수도기념관", "next": "museum" }, { "label": "흰여울문화마을", "next": "village" }, { "label": "해동용궁사", "next": "temple" }, { "label": "선정 이유", "next": "selection" }, { "label": "REPORT 열기", "url": "https://lostnumbers-lab.github.io/potofolio/report.html" } ]
+    },
+    {
+      "id": "museum", "question": "임시수도기념관은 어떤 곳인가요?", "keywords": ["임시수도기념관", "기념관", "서구", "역사", "피란수도"],
+      "answer": "한국전쟁 당시 부산이 임시수도였던 시기의 역사와 생활상을 살펴볼 수 있는 공간이에요. 사이트에서는 대통령 관저와 전시관 관람, 피란수도 생활사 탐방을 주요 체험으로 소개합니다.",
+      "buttons": [ { "label": "REPORT에서 살펴보기", "url": "https://lostnumbers-lab.github.io/potofolio/report.html" }, { "label": "다른 장소 보기", "next": "report" } ]
+    },
+    {
+      "id": "village", "question": "흰여울문화마을은 어떤 곳인가요?", "keywords": ["흰여울문화마을", "흰여울", "영도", "골목", "문화마을"],
+      "answer": "영도의 해안 절벽과 주거 골목, 바다 전망이 어우러진 생활형 문화마을이에요. 해안 골목 산책, 전망 촬영, 카페·공방 방문, 절영해안산책로 연계 체험을 소개합니다.",
+      "buttons": [ { "label": "REPORT에서 살펴보기", "url": "https://lostnumbers-lab.github.io/potofolio/report.html" }, { "label": "다른 장소 보기", "next": "report" } ]
+    },
+    {
+      "id": "temple", "question": "해동용궁사는 어떤 곳인가요?", "keywords": ["해동용궁사", "용궁사", "기장", "사찰", "바다"],
+      "answer": "부산 기장 해안에 자리한 사찰로, 바다 경관과 불교문화를 함께 경험할 수 있는 곳이에요. 사이트에서는 사찰 관람, 해안 경관 촬영, 산책 등을 주요 체험으로 소개합니다.",
+      "buttons": [ { "label": "REPORT에서 살펴보기", "url": "https://lostnumbers-lab.github.io/potofolio/report.html" }, { "label": "다른 장소 보기", "next": "report" } ]
+    },
+    {
+      "id": "selection", "question": "왜 이 세 곳을 선정했나요?", "keywords": ["선정", "이유", "기준", "다양성"],
+      "answer": "역사적 장소, 생활형 문화마을, 해안 사찰을 함께 살펴보기 위해 선정했어요. 부산 관광의 서로 다른 역사적 배경과 공간적 특징을 비교할 수 있는 구성입니다.",
+      "buttons": [ { "label": "세 장소 보기", "next": "report" }, { "label": "제작 콘텐츠 보기", "next": "contents" } ]
+    },
+    {
+      "id": "contents", "question": "어떤 콘텐츠가 있나요?", "keywords": ["콘텐츠", "작품", "결과물", "CONTENTS", "갤러리"],
+      "answer": "CONTENTS에서는 관광지를 주제로 한 카드뉴스, 영상, 포스터를 살펴볼 수 있어요. 어떤 형식이 궁금하세요?",
+      "source": "https://lostnumbers-lab.github.io/potofolio/contents.html",
+      "buttons": [ { "label": "카드뉴스", "next": "cards" }, { "label": "영상", "next": "videos" }, { "label": "포스터", "next": "poster" }, { "label": "작품 상세 확인 방법", "next": "preview" }, { "label": "전체 콘텐츠 열기", "url": "https://lostnumbers-lab.github.io/potofolio/contents.html" } ]
+    },
+    {
+      "id": "cards", "question": "어떤 카드뉴스가 있나요?", "keywords": ["카드뉴스", "서울", "제주", "오름", "양양", "서핑", "비 오는 날"],
+      "answer": "서울 야경 산책 코스, 초보자를 위한 제주 오름, 양양 서핑 입문 가이드, 비 오는 날의 여행법이 목록에 있어요. CONTENTS 페이지에서 CARD NEWS를 선택하면 모아 볼 수 있습니다.",
+      "buttons": [ { "label": "CONTENTS 열기", "url": "https://lostnumbers-lab.github.io/potofolio/contents.html" }, { "label": "다른 형식 보기", "next": "contents" } ]
+    },
+    {
+      "id": "videos", "question": "어떤 영상이 있나요?", "keywords": ["영상", "동영상", "숏폼", "릴스", "레이스", "시장"],
+      "answer": "한눈에 보는 부산 관광 명소 레이스 코스와 로컬 시장 한입 여행이 영상 목록에 있어요. CONTENTS의 VIDEO 메뉴에서 확인할 수 있습니다.",
+      "buttons": [ { "label": "CONTENTS 열기", "url": "https://lostnumbers-lab.github.io/potofolio/contents.html" }, { "label": "다른 형식 보기", "next": "contents" } ]
+    },
+    {
+      "id": "poster", "question": "포스터도 볼 수 있나요?", "keywords": ["포스터", "광고", "디자인"],
+      "answer": "부산 관광 광고 포스터가 등록되어 있어요. CONTENTS에서 POSTER를 선택하고 해당 카드를 누르면 상세 내용을 확인할 수 있습니다.",
+      "buttons": [ { "label": "CONTENTS 열기", "url": "https://lostnumbers-lab.github.io/potofolio/contents.html" }, { "label": "다른 형식 보기", "next": "contents" } ]
+    },
+    {
+      "id": "preview", "question": "작품 상세는 어떻게 보나요?", "keywords": ["상세", "미리보기", "이미지", "재생"],
+      "answer": "CONTENTS에서 관심 있는 카드를 선택해 주세요. 등록된 작품에 따라 이미지나 영상을 확인할 수 있으며, 일부 항목은 상세 자료를 추가할 예정으로 안내되어 있어요.",
+      "reviewStatus": "콘텐츠별 실제 파일, 제작 의도, 담당 역할 확인 필요",
+      "buttons": [ { "label": "CONTENTS 열기", "url": "https://lostnumbers-lab.github.io/potofolio/contents.html" } ]
+    },
+    {
+      "id": "sns", "question": "SNS에서 어떤 정보를 볼 수 있나요?", "keywords": ["SNS", "성과", "통계", "조회수", "반응", "참여율"],
+      "answer": "게시물 수, 조회수, 반응 수, 평균 참여율과 콘텐츠별 성과 구성을 살펴볼 수 있어요. 현재 표시 수치의 실제 집계 여부와 기준일은 운영자 확인이 필요합니다.",
+      "source": "https://lostnumbers-lab.github.io/potofolio/sns.html",
+      "reviewStatus": "실제 집계 여부·출처·기준일·참여율 산식 확인 전 실적 수치 답변 보류",
+      "buttons": [ { "label": "기간을 바꿔 볼 수 있나요?", "next": "period" }, { "label": "어떤 분석 내용이 있나요?", "next": "insight" }, { "label": "실제 운영 성과인가요?", "next": "data-status" }, { "label": "SNS 페이지 열기", "url": "https://lostnumbers-lab.github.io/potofolio/sns.html" } ]
+    },
+    {
+      "id": "period", "question": "기간을 바꿔 볼 수 있나요?", "keywords": ["기간", "30일", "7일", "최근"],
+      "answer": "SNS 페이지에서는 전체 기간, 최근 30일, 최근 7일을 선택할 수 있어요. 페이지 오른쪽 위의 기간 선택 메뉴를 이용해 주세요. 실시간 데이터 연동 여부는 확인되지 않았습니다.",
+      "buttons": [ { "label": "SNS 페이지 열기", "url": "https://lostnumbers-lab.github.io/potofolio/sns.html" } ]
+    },
+    {
+      "id": "insight", "question": "어떤 분석 내용이 있나요?", "keywords": ["인사이트", "분석", "저장", "공유", "전략"],
+      "answer": "페이지에서는 짧은 영상은 도달에, 정보형 카드뉴스는 저장과 공유에 강점이 있다는 인사이트를 제시해요. 두 형식을 연계한 시리즈를 다음 콘텐츠 전략으로 소개합니다.",
+      "buttons": [ { "label": "분석 화면 보기", "url": "https://lostnumbers-lab.github.io/potofolio/sns.html" }, { "label": "제작 콘텐츠 보기", "next": "contents" } ]
+    },
+    {
+      "id": "data-status", "question": "SNS 수치는 실제 운영 성과인가요?", "keywords": ["실적", "진짜", "실제", "집계", "기준일", "출처"],
+      "answer": "현재 페이지에는 수치가 표시되어 있지만 실제 집계 자료인지 확인할 수 있는 출처와 기준일은 명시되어 있지 않아요. 실제 성과 여부는 운영자 확인이 필요합니다.",
+      "buttons": [ { "label": "SNS 페이지 열기", "url": "https://lostnumbers-lab.github.io/potofolio/sns.html" } ]
+    },
+    {
+      "id": "projects", "question": "어떤 프로젝트가 있나요?", "keywords": ["프로젝트", "프로젝", "팀", "서비스"],
+      "answer": "팀 프로젝트의 구성과 작업 과정을 살펴보거나 Route Recipe의 기능과 체험 페이지를 확인할 수 있어요. 궁금한 프로젝트를 선택해 주세요.",
+      "buttons": [ { "label": "팀 프로젝트 소개", "next": "final" }, { "label": "Route Recipe 소개", "next": "route" } ]
+    },
+    {
+      "id": "final", "question": "팀 프로젝트는 어떤 내용인가요?", "keywords": ["팀 프로젝트", "FINAL", "하루", "로컬"],
+      "answer": "현재 FINAL PROJECT는 지역의 작은 가게, 산책길, 문화 공간을 연결해 취향별 하루 여행 코스를 제안하는 구성으로 소개되어 있어요. 일부 설명과 결과물 영역은 실제 자료로 교체할 예정이라고 안내되어 있습니다.",
+      "source": "https://lostnumbers-lab.github.io/potofolio/final.html",
+      "reviewStatus": "실제 프로젝트명·기간·팀원·역할·최종 산출물 확인 필요",
+      "buttons": [ { "label": "프로젝트 진행 과정", "next": "process" }, { "label": "최종 결과물 구성", "next": "outputs" }, { "label": "FINAL PROJECT 열기", "url": "https://lostnumbers-lab.github.io/potofolio/final.html" } ]
+    },
+    {
+      "id": "outputs", "question": "최종 결과물은 무엇인가요?", "keywords": ["산출물", "최종 결과물", "캠페인", "완성"],
+      "answer": "캠페인 키 비주얼, 카드뉴스, 숏폼 영상 영역으로 구성되어 있어요. 현재 페이지는 실제 프로젝트 이미지와 영상을 추가할 예정이라고 안내합니다.",
+      "buttons": [ { "label": "FINAL PROJECT 열기", "url": "https://lostnumbers-lab.github.io/potofolio/final.html" }, { "label": "다른 콘텐츠 보기", "next": "contents" } ]
+    },
+    {
+      "id": "route", "question": "Route Recipe는 무엇인가요?", "keywords": ["Route Recipe", "루트", "레시피", "워케이션", "여행 서비스"],
+      "answer": "여행자의 취향과 이동 조건을 조합해 여행 탐색과 이동 계획을 돕는 워케이션 여행 서비스로 소개되어 있어요. 탐색, AI 추천, 경로 상세, 짐 찾기의 네 가지 기능을 안내합니다. 이 챗봇은 해당 서비스 소개만 하며 AI 기능을 호출하지 않습니다.",
+      "source": "https://lostnumbers-lab.github.io/potofolio/route-recipe.html",
+      "buttons": [ { "label": "주요 기능 알아보기", "next": "features" }, { "label": "Route Recipe 소개 열기", "url": "https://lostnumbers-lab.github.io/potofolio/route-recipe.html" }, { "label": "서비스 체험하기", "url": "https://route-recipe.vercel.app/" } ]
+    },
+    {
+      "id": "features", "question": "Route Recipe에는 어떤 기능이 있나요?", "keywords": ["기능", "경로", "짐", "보관", "추천 코스", "AI"],
+      "answer": "소개 페이지에서는 지역·테마별 탐색, 취향과 여행 조건에 맞춘 코스 추천, 방문 순서와 이동 정보를 확인하는 경로 상세, 짐 보관 장소 찾기를 안내해요. 기능 설명은 포트폴리오 기준이며 실제 서비스 동작 범위는 별도 확인이 필요합니다.",
+      "reviewStatus": "실서비스 기능·로그인·요금·데이터 갱신 여부 확인 필요",
+      "buttons": [ { "label": "서비스 소개 보기", "url": "https://lostnumbers-lab.github.io/potofolio/route-recipe.html" }, { "label": "서비스 체험하기", "url": "https://route-recipe.vercel.app/" } ]
+    },
+    {
+      "id": "recommend", "question": "어디부터 보면 좋을까요?", "keywords": ["어디", "먼저", "처음", "둘러보기", "추천"],
+      "answer": "작품을 보고 싶다면 CONTENTS, 조사·기획이 궁금하다면 REPORT부터 살펴보세요. 데이터 분석 화면은 SNS, 서비스 소개는 Route Recipe에서 확인할 수 있어요.",
+      "buttons": [ { "label": "결과물을 먼저 볼게요", "next": "contents" }, { "label": "기획과 조사가 궁금해요", "next": "report" }, { "label": "데이터 분석이 궁금해요", "next": "sns" }, { "label": "서비스가 궁금해요", "next": "route" } ]
+    },
+    {
+      "id": "inquiry-info", "question": "제작 문의는 어떻게 남기나요?", "keywords": ["문의", "제작 문의", "견적", "가격", "비용", "납기", "일정", "연락", "의뢰"],
+      "answer": "제작 문의 창에 이름, 이메일, 제목과 프로젝트 내용을 남길 수 있어요. 제작 가능 범위, 비용, 일정과 회신 기한은 아직 확정된 안내가 없어 문의 내용을 바탕으로 운영자 확인이 필요합니다.",
+      "reviewStatus": "제작 범위·가격·납기·회신 기한·개인정보 처리방침 확정 필요",
+      "buttons": [ { "label": "제작 문의 남기기", "action": "inquiry" }, { "label": "문의 페이지 열기", "url": "./contact.html" } ]
+    },
+    {
+      "id": "fallback", "question": "찾는 질문이 없어요", "keywords": [],
+      "answer": "등록된 질문과 키워드에서 일치하는 항목을 찾지 못했어요. 아래 주제를 선택하거나 제작 문의를 남겨주세요.",
+      "buttons": [ { "label": "전체 주제 보기", "next": "home" }, { "label": "제작 문의 남기기", "action": "inquiry" } ]
+    }
+  ]
+}
