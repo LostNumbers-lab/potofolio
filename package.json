@@ -6,6 +6,7 @@
     "node": ">=22.13.0"
   },
   "scripts": {
+    "setup:busan-key": "node scripts/setup-busan-key.mjs",
     "dev": "vite",
     "build": "vite build && node scripts/postbuild.mjs",
     "preview": "vite preview"

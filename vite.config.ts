@@ -1,9 +1,18 @@
 import { sites } from '@openai/sites-vite-plugin';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
+import { handleOffices } from './server/busan-offices.mjs';
 import { resolve } from 'node:path';
 
 export default defineConfig({
-  plugins: [sites()],
+  plugins: [sites(), {
+    name: 'busan-offices-api',
+    configureServer(server) {
+      server.middlewares.use('/api/busan-offices', (req, res) => handleOffices(req, res, loadEnv(server.config.mode, server.config.root, 'BUSAN_')));
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use('/api/busan-offices', (req, res) => handleOffices(req, res, loadEnv(server.config.mode, server.config.root, 'BUSAN_')));
+    },
+  }],
   build: {
     rollupOptions: {
       input: {

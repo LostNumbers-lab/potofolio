@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="description" content="관광자원 조사와 SNS 콘텐츠 기획 자료를 정리한 리포트입니다."/><meta property="og:title" content="REPORT — TRAVEL ARCHIVE"/><meta property="og:description" content="관광자원 조사와 SNS 콘텐츠 기획 자료를 정리한 리포트입니다."/><meta property="og:type" content="website"/><meta property="og:image" content="https://travel-archive-portfolio.skp-k-2881.chatgpt.site/og.png"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="REPORT — TRAVEL ARCHIVE"/><meta name="twitter:description" content="관광자원 조사와 SNS 콘텐츠 기획 자료를 정리한 리포트입니다."/><meta name="twitter:image" content="https://travel-archive-portfolio.skp-k-2881.chatgpt.site/og.png"/><title>REPORT — TRAVEL ARCHIVE</title><link rel="stylesheet" href="./css/reset.css"/><link rel="stylesheet" href="./css/common.css"/><link rel="stylesheet" href="./css/subpage.css"/><link rel="stylesheet" href="./css/report.css"/><link rel="stylesheet" href="./css/responsive.css"/><script src="./js/common.js" defer></script><script src="./js/report.js" defer></script></head>
 <body data-page="report"><a class="skip-link" href="#main">본문으로 바로가기</a>
+<script src="./js/busan-offices.js" defer></script>
 <header class="site-header"><div class="header-inner"><a class="brand" href="./index.html" aria-label="TRAVEL ARCHIVE 홈"><span class="brand-mark" aria-hidden="true">TA</span><span class="brand-copy"><b>TRAVEL ARCHIVE</b><small>SK planet Content Portfolio</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="global-nav"><span></span><span></span><span></span><span class="sr-only">메뉴 열기</span></button><nav class="global-nav" id="global-nav" aria-label="주요 메뉴"><a href="./report.html" data-nav="report">REPORT</a><a href="./contents.html" data-nav="contents">CONTENTS</a><a href="./sns.html" data-nav="sns">SNS</a><a href="./final.html" data-nav="final">FINAL PROJECT</a><a class="nav-experience" href="./route-recipe.html" data-nav="route-recipe">ROUTE RECIPE <span aria-hidden="true">→</span></a></nav></div></header>
 <main id="main"><section class="page-hero"><div class="section-shell page-hero-grid"><div><p class="eyebrow">RESEARCH & PLANNING</p><h1>TOURISM<br/><em>REPORT</em></h1></div><p class="page-hero-description">지역별 관광자원의 특징을 조사하고, SNS 콘텐츠로 발전시킬 수 있는 아이디어와 인사이트를 구조화합니다.</p><span class="page-index" aria-hidden="true">01</span></div></section>
 <section class="content-section"><div class="section-shell"><div class="section-intro"><div><p class="eyebrow">SELECTED TOURISM RESOURCES</p><h2>관광자원 조사 목록</h2></div><p>부산의 역사와 생활문화, 해안 경관을 각기 다른 방식으로 경험할 수 있는 관광자원 세 곳을 선정했습니다.</p></div>
@@ -19,7 +20,15 @@
     <div class="card-body"><div class="card-heading"><span class="type-badge">역사·문화</span><h3>해동용궁사</h3><p class="resource-location"><span aria-hidden="true">●</span> 부산광역시 기장군</p></div><p class="resource-summary">동해 해안 절벽과 사찰 건축이 맞닿아 있어 바다 경관과 불교문화를 함께 경험할 수 있는 사찰</p><dl class="resource-details"><div><dt>대표 체험</dt><dd>사찰 관람 · 해안 경관 촬영 · 소원 기원 · 산책</dd></div><div><dt>추천 방문 시기</dt><dd>이른 아침–오전 <span>·</span> 사계절</dd></div></dl></div>
   </article>
 </div><div class="empty-state" id="report-empty">조건에 맞는 관광자원이 없습니다.</div>
-<div class="notice-panel"><b>SELECTION NOTE</b><p>역사적 장소, 생활형 문화마을, 해안 사찰을 함께 선정해 부산 관광의 시간적·공간적 다양성을 살펴볼 수 있도록 구성했습니다.</p></div></div></section></main>
+<div class="notice-panel"><b>SELECTION NOTE</b><p>역사적 장소, 생활형 문화마을, 해안 사찰을 함께 선정해 부산 관광의 시간적·공간적 다양성을 살펴볼 수 있도록 구성했습니다.</p></div></div></section>
+<section class="content-section office-section" aria-labelledby="office-title"><div class="section-shell">
+  <div class="section-intro"><div><p class="eyebrow">BUSAN OPEN DATA</p><h2 id="office-title">부산 관광안내소 정보</h2></div><p>여행 정보를 문의할 안내소의 위치와 연락처, 운영시간을 공공데이터로 확인하세요.</p></div>
+  <div class="toolbar"><label class="search-box"><span class="sr-only">현재 페이지의 안내소 검색</span><input id="office-search" type="search" placeholder="현재 페이지에서 안내소명·주소 검색"/></label><button class="button button-primary" id="office-load" type="button">정보 조회하기</button></div>
+  <p id="office-status" role="status" aria-live="polite">조회 버튼을 누르면 부산 관광안내소 정보를 불러옵니다.</p>
+  <div class="office-grid" id="office-list" aria-busy="false"></div>
+  <div class="office-pagination"><button class="button" id="office-prev" type="button" disabled>이전</button><span id="office-page">1 페이지</span><button class="button" id="office-next" type="button" disabled>다음</button></div>
+  <p class="office-source">출처: <a href="https://www.data.go.kr/data/15063445/openapi.do" target="_blank" rel="noopener noreferrer">부산광역시_부산관광안내소정보 서비스</a> · 운영정보는 방문 전 안내소에 확인해 주세요.</p>
+</div></section></main>
 
 <dialog class="resource-dialog" id="provisional-dialog" aria-labelledby="provisional-title">
   <div class="dialog-shell">
