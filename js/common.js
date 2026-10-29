@@ -28,3 +28,12 @@ if (currentLink) {
 document.querySelectorAll('[data-current-year]').forEach((element) => {
   element.textContent = new Date().getFullYear();
 });
+
+// Keep the widget as a static module so it also works on GitHub Pages without a build.
+if (!document.querySelector('[data-travel-chatbot-script]')) {
+  const chatbotScript = document.createElement('script');
+  chatbotScript.type = 'module';
+  chatbotScript.src = new URL('./chatbot/widget.js', document.baseURI).href;
+  chatbotScript.dataset.travelChatbotScript = '';
+  document.body.append(chatbotScript);
+}

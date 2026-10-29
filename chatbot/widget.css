@@ -1,0 +1,12 @@
+#travel-chatbot-widget{position:fixed;right:24px;bottom:24px;z-index:1000;font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;line-height:1.5}
+#travel-chatbot-widget *{box-sizing:border-box}
+#travel-chatbot-widget .ta-chat-launcher{display:flex;align-items:center;justify-content:center;gap:10px;background:#004999;color:white;border:1px solid #ffffff35;min-height:54px;padding:12px 20px;border-radius:30px;box-shadow:0 8px 30px #14365c40;font-size:13px;font-weight:700;cursor:pointer}
+#travel-chatbot-widget .ta-chat-launcher span{font-size:24px;line-height:1}
+#travel-chatbot-widget .ta-chat-window{position:absolute;right:0;bottom:70px;width:min(410px,calc(100vw - 32px));height:min(720px,calc(100dvh - 120px));max-height:calc(100dvh - 120px);border:1px solid #dbe3ed;border-radius:17px;background:#fff;box-shadow:0 15px 60px #142b4830;overflow:hidden;display:flex;flex-direction:column}
+#travel-chatbot-widget .ta-chat-window[hidden]{display:none}
+#travel-chatbot-widget .ta-chat-topbar{display:flex;justify-content:space-between;align-items:center;flex-shrink:0;height:38px;padding:0 12px;background:#f3f6fa;border-bottom:1px solid #dbe3ed;color:#53677e}
+#travel-chatbot-widget .ta-chat-topbar a{color:#53677e;font-size:10px;text-decoration:none}
+#travel-chatbot-widget .ta-chat-topbar button{height:32px;width:36px;background:none;border:0;font-size:24px;color:#142b48;cursor:pointer}
+#travel-chatbot-widget iframe{display:block;flex:1;width:100%;min-height:0;border:0;background:white}
+#travel-chatbot-widget button:focus-visible,#travel-chatbot-widget a:focus-visible{outline:3px solid #e8a64a;outline-offset:-3px}
+@media(max-width:600px){#travel-chatbot-widget{right:16px;bottom:max(16px,env(safe-area-inset-bottom))}#travel-chatbot-widget .ta-chat-window{bottom:66px}#travel-chatbot-widget .ta-chat-launcher{min-height:48px;padding:10px 16px;font-size:12px}}

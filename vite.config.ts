@@ -4,6 +4,7 @@ import { handleOffices } from './server/busan-offices.mjs';
 import { resolve } from 'node:path';
 
 export default defineConfig({
+  base: './',
   plugins: [sites(), {
     name: 'busan-offices-api',
     configureServer(server) {

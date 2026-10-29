@@ -51,7 +51,7 @@ async function loadOffices(page = 1) {
   officeList.setAttribute('aria-busy', 'true');
   officeStatus.textContent = '부산 관광안내소 정보를 불러오고 있습니다…';
   try {
-    const response = await fetch(`/api/busan-offices?pageNo=${page}`);
+    const response = await fetch(new URL(`./api/busan-offices?pageNo=${page}`, document.baseURI));
     let data;
     try { data = await response.json(); } catch { throw new Error('조회 서버가 준비되지 않았습니다. 로컬 개발 서버 또는 API가 지원되는 서버에서 실행해 주세요.'); }
     if (!response.ok) throw new Error(data.error || '정보를 불러오지 못했습니다.');

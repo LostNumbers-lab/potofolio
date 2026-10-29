@@ -9,6 +9,10 @@ SK플래닛 관광 콘텐츠 제작 과정과 결과물을 정리하는 반응�
 - `contents.html`: 카드뉴스·영상 갤러리
 - `sns.html`: SNS 성과 대시보드
 - `final.html`: 최종 팀 프로젝트
+- `route-recipe.html`: Route Recipe 서비스 소개
+- `chatbot/index.html`: 선택형 아카이브 안내 챗봇
+- `chatbot/contact.html`: Supabase에 저장되는 제작 문의
+- `chatbot/admin/`: 관리자 로그인, 초안 편집, 미리보기, 최종 게시, 버전 이력, 문의함
 
 ## 콘텐츠 교체
 
@@ -30,3 +34,8 @@ SK플래닛 관광 콘텐츠 제작 과정과 결과물을 정리하는 반응�
 키는 루트 `.env`의 `BUSAN_TOURISM_SERVICE_KEY`에 저장합니다. `.env*`는 Git에서 제외되며, 키에 `VITE_` 접두사를 붙이지 않습니다. API 키를 채팅이나 HTML에 넣지 마세요. 서버가 고정된 공식 API로만 요청하고 브라우저에는 정리된 안내소 데이터만 반환합니다. 키 변경 시 개발 서버를 재시작하세요.
 
 `file://` 또는 단순 정적 파일 호스팅으로는 실시간 API를 사용할 수 없습니다. 로컬 개발/미리보기 서버에 API가 연결되어 있습니다. Vercel용 `api/busan-offices.js`도 포함되어 있으며, 향후 배포 시 해당 프로젝트 서버 환경변수에 같은 이름의 키를 등록해야 합니다. 로컬 `.env`는 업로드하지 않습니다.
+## 안내 챗봇
+
+주요 페이지 오른쪽 아래의 **아카이브 가이드** 버튼에서 열 수 있습니다. 생성형 AI API 없이 등록된 답변과 분기로만 작동합니다. 운영 데이터는 [관리자 페이지](https://lostnumbers-lab.github.io/potofolio/chatbot/admin/)에서 JSON으로 편집하며 초안 저장·미리보기와 최종 게시를 분리합니다. 문의는 기존 Supabase `public.consultations` 테이블에 비공개 제작 문의로 저장되고 관리자 문의함에서 확인합니다. 자세한 운영 방법은 [관리자 안내](chatbot/admin/README.md)를 참고하세요.
+
+`pnpm test`로 대화 분기와 문의 매핑을 검증할 수 있습니다.
